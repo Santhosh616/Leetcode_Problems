@@ -1,0 +1,16 @@
+// Last updated: 7/30/2025, 9:21:53 AM
+import java.util.*;
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        dfs(root, result);
+        return result;
+    }
+    
+    private void dfs(TreeNode node, List<Integer> result) {
+        if (node == null) return;
+        result.add(node.val);       
+        dfs(node.left, result);    
+        dfs(node.right, result);    
+    }
+}
