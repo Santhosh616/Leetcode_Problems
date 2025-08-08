@@ -1,0 +1,8 @@
+-- Last updated: 8/8/2025, 11:11:52 AM
+SELECT d.name AS Department,
+e.name AS Employee,
+e.salary AS Salary
+ FROM Employee e JOIN Department d ON e.departmentId = d.id
+ where(select COUNT(DISTINCT e2.salary) FROM Employee e2
+ WHERE e2.departmentId = e.departmentId AND
+ e2.salary > e.salary) <3;
